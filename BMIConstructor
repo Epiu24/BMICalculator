@@ -1,0 +1,35 @@
+public class BMIConstructor {
+    private double berat; // Berat badan dalam kilogram
+    private double tinggi; // Tinggi badan dalam meter
+
+    // Konstruktor untuk menginisialisasi berat badan dan tinggi badan
+    public BMIConstructor(double berat, double tinggi) {
+        this.berat = berat;
+        this.tinggi = tinggi;
+    }
+
+    // Metode untuk menghitung BMI
+    public double hitungBMI() {
+        if (tinggi <= 0) {
+            System.out.println("Tinggi badan tidak valid.");
+            return -1; // Mengembalikan -1 jika tinggi badan tidak valid
+        }
+        return berat / (tinggi * tinggi);
+    }
+
+    // Metode untuk menentukan kategori BMI
+    public String kategoriBMI() {
+        double bmi = hitungBMI();
+        if (bmi == -1) {
+            return "BMI tidak valid";
+        } else if (bmi < 18.5) {
+            return "Kekurangan berat badan";
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            return "Berat badan normal";
+        } else if (bmi >= 25 && bmi < 29.9) {
+            return "Kelebihan berat badan";
+        } else {
+            return "Obesitas";
+        }
+    }
+}

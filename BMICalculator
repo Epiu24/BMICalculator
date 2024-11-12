@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class BMICalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input berat badan dan tinggi badan
+        System.out.print("Masukkan berat badan (kg): ");
+        double berat = scanner.nextDouble();
+        System.out.print("Masukkan tinggi badan (m): ");
+        double tinggi = scanner.nextDouble();
+
+        // Membuat objek BMIConstructor dan menghitung BMI
+        BMIConstructor bmi = new BMIConstructor(berat, tinggi);
+        
+        // Menampilkan hasil BMI dan kategori
+        double bmiValue = bmi.hitungBMI();
+        String kategori = bmi.kategoriBMI();
+        
+        if (bmiValue != -1) {
+            System.out.printf("BMI Anda adalah: %.2f\n", bmiValue);
+            System.out.println("Kategori BMI: " + kategori);
+        }
+        
+        scanner.close();
+    }
+}
